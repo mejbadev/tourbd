@@ -1,0 +1,25 @@
+.offer-input form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.offer-input {
+  border: 1px solid orangered;
+  width: 60%;
+  margin: 0 auto;
+}
+.offer-input input {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.offer-input textarea {
+  width: 70%;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+label {
+  color: darkblue;
+  font-weight: 600;
+}

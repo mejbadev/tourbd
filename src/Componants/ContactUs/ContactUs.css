@@ -1,0 +1,16 @@
+input {
+  margin-left: 10px;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  outline: azure;
+  border-bottom: 1px solid grey;
+}
+textarea {
+  margin-left: 10px;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  outline: azure;
+  border-bottom: 1px solid grey;
+}
