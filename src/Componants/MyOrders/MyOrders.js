@@ -17,7 +17,7 @@ const MyOrders = () => {
             setOrders(data);
             setIsLoading(false);
         })
-    },[user.email])
+    },[])
 
     const handleDelete=(id)=>{
         const url= `https://evil-demon-51495.herokuapp.com/orders/${id}`;
