@@ -2,7 +2,7 @@
 This project is tour booking wesite where user can book their order as their with. When they are going to book a order they must have to login in (Google log in).
 
 # Used LIBRARY:
-REACT, NODE JS, EXPRESS JS, BOOTSTRAP, FIREBASE
+REACT,BOOTSTRAP, FIREBASE- for client side  NODE JS, EXPRESS JS- for server side 
 
 # About Design
 Full website is created using HTML, CSS, Bootstrap , FontAwesome, Vanila Css, ReactJs, Firebase.
