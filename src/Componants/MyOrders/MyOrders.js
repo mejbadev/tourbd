@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
 import useAuth from '../Hooks/useAuth';
-
+import MyOrder from '../MyOrder/MyOrder';
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
