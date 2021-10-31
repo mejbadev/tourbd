@@ -9,15 +9,14 @@ const MyOrders = () => {
     const {user} = useAuth();
 
     useEffect(()=>{
-        setIsLoading(true);
         fetch(`https://evil-demon-51495.herokuapp.com/orders/${user.email}`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
             setOrders(data);
-            setIsLoading(false);
+           
         })
-    },[])
+    },[user.email])
 
     const handleDelete=(id)=>{
         const url= `https://evil-demon-51495.herokuapp.com/orders/${id}`;
@@ -39,7 +38,7 @@ const MyOrders = () => {
         <div className='container mt-3'>
             <div className='row row-cols-lg-3 row-cols-1'>
                 {
-                    isLoading?<div className='mx-auto'>loading... <Spinner animation="border" variant="primary" /> </div>:orders.map(order=><div className='col'>
+                     orders.map(order=><div className='col'>
                     <div className="card text-dark bg-info mb-3" >
                     <div className="card-header"><h4 className='text-warning bold'>{order.placeName}</h4></div>
                     <div className="card-body">
