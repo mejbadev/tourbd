@@ -26,7 +26,7 @@ const ManageOrders = () => {
         .then(data=>{
           console.log(data);
             putOrder(data, id);
-        });
+        })
 
     }
 

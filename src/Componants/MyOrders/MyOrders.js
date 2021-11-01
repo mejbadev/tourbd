@@ -4,17 +4,23 @@ import useAuth from '../Hooks/useAuth';
 import MyOrder from '../MyOrder/MyOrder';
 
 const MyOrders = () => {
-    const [orders, setOrders] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const {user} = useAuth();
 
+    const [orders, setOrders] = useState([]);
+    const [loadOrders, setLoadOrders] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    
+
+    const {user} = useAuth();
+    console.log(user.email);
     useEffect(()=>{
-        fetch(`https://evil-demon-51495.herokuapp.com/orders/${user.email}`)
+        setIsLoading(true);
+        fetch(`https://evil-demon-51495.herokuapp.com/orders`)
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
-            setOrders(data);
-           
+            setLoadOrders(data);
+            const filterData = loadOrders.filter(order => order.email == user.email);
+            setOrders(filterData);
+            setIsLoading(false);
         })
     },[user.email])
 
@@ -38,7 +44,7 @@ const MyOrders = () => {
         <div className='container mt-3'>
             <div className='row row-cols-lg-3 row-cols-1'>
                 {
-                     orders.map(order=><div className='col'>
+                     isLoading?<div className='mx-auto'>loading... <Spinner animation="border" variant="primary" /> </div>:orders.map(order=><div className='col'>
                     <div className="card text-dark bg-info mb-3" >
                     <div className="card-header"><h4 className='text-warning bold'>{order.placeName}</h4></div>
                     <div className="card-body">
@@ -61,4 +67,3 @@ const MyOrders = () => {
 
 export default MyOrders;
 
-{/* <MyOrder key={order._id} order={order}></MyOrder> */}
