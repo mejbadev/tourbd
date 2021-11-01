@@ -1,5 +1,5 @@
 # ABOUT PROJECT:
-This project is tour booking wesite where user can book their order as their with. When they are going to book a order they must have to login in (Google log in).
+This project is tour booking wesite where user can book their order as their with. When they are going to book a order they must have to login in (Google log in). Website Link : https://tour-booking-website-6ccf1.web.app/ 
 
 # Used LIBRARY:
 REACT,BOOTSTRAP, FIREBASE- for client side  NODE JS, EXPRESS JS- for server side 
@@ -8,7 +8,7 @@ REACT,BOOTSTRAP, FIREBASE- for client side  NODE JS, EXPRESS JS- for server side
 Full website is created using HTML, CSS, Bootstrap , FontAwesome, Vanila Css, ReactJs, Firebase.
 
 # Wroking Process
-Home page will show the nav bar (home, about, contact us and login). And its show banner, offers. Offers have a button name get offer user can get offer clicking it. If he/she is not logged in then he has to log in first and the page redirect the order page and user dashboard. 
+Home page will show the nav bar (home, about, contact us and login). And its show banner, offers. Offers have a button name get offer user can get offer clicking it. If he/she is not logged in then he has to log in first and the page redirect the order page and user dashboard. Then in dashboard another add 3 extra navigation(Add a service, My Orders, Manage Order) and Logout with username. 
 
 # Used React libraries
 In this website I used react bootstrap, react router, router-dom, context-api,
