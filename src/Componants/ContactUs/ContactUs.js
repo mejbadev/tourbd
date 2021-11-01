@@ -5,6 +5,7 @@ import './ContactUs.css';
 
 const ContactUs = () => {
     const {user} = useAuth();
+
     return (
         <div className='container mb-2 mt-3' id='contact'>
             <h2 className='text-primary'>CONTACT US</h2>
@@ -12,7 +13,7 @@ const ContactUs = () => {
             <div className='login-form bg-info bg-opacity-25 w-75 mx-auto p-5 mt-3'>
              
                 <label>Your name: </label>
-                <input className='p-2 bg-info bg-opacity-25' value={user.displayName}  type="text" name="name" id="" placeholder='Name' />
+                <input className='p-2 bg-info bg-opacity-25' value={user.displayName}   type="text" name="name" id="" placeholder='Name' />
                 <br /><br />
                 <label>Your Email: </label>
                 <input className='p-2 bg-info bg-opacity-25' value={user.email}  type="text" name="email" id="" placeholder='Email' />
