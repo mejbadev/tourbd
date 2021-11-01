@@ -20,27 +20,23 @@ const ManageOrders = () => {
     },[user.email])
 
     const handleUpdate =(id)=>{
-        const url= `https://evil-demon-51495.herokuapp.com/orders/${id}`;
-        fetch(url)
-        .then(res=>res.json())
-        .then(data=>{
-          console.log(data);
-            putOrder(data, id);
-        })
-
+        const update = orders.find(order=> order.id === id);
+        setUpdateOrder(update);
+        putOrder(id);
     }
 
-    const putOrder =(data, id)=>{
+    const putOrder =(id)=>{
         const url= `https://evil-demon-51495.herokuapp.com/orders/${id}`;
         fetch(url, {
             method: 'PUT',
             headers:{
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({...data, status:"Approved"})
+            body: JSON.stringify({...updateOrder, status:"Approved"})
         })
         .then(res=>res.json())
         .then(data=>{
+            console.log(data);
             if(data.modifiedCount>0){
                 alert('updated successfully! Plz Reload The page');
             }
@@ -66,7 +62,7 @@ const ManageOrders = () => {
         <div className='container mt-3'>
             <div className='row row-cols-lg-3 row-cols-1'>
                 {
-                     isLoading?<div className='mx-auto'>loading... <Spinner animation="border" variant="primary" /> </div>:orders.map(order=><div className='col'>
+                     isLoading?<div className='mx-auto'>loading... <Spinner animation="border" variant="primary" /> </div>:orders.map(order=><div key={order._id} className='col'>
                      <div className="card text-dark bg-info mb-3" >
                      <div className="card-header"><h4 className='text-warning bold'>{order.placeName}</h4></div>
                      <div className="card-body">

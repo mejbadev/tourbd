@@ -8,21 +8,23 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
     const [loadOrders, setLoadOrders] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    
-
     const {user} = useAuth();
-    console.log(user.email);
+ 
     useEffect(()=>{
         setIsLoading(true);
         fetch(`https://evil-demon-51495.herokuapp.com/orders`)
         .then(res=>res.json())
         .then(data=>{
-            setLoadOrders(data);
-            const filterData = loadOrders.filter(order => order.email == user.email);
-            setOrders(filterData);
+            setOrders(data);
             setIsLoading(false);
         })
     },[user.email])
+
+    useEffect(()=>{
+        const emailFilter = orders.filter(order=>order.email === user.email);
+        console.log(emailFilter);
+        setOrders(emailFilter);
+    }, [orders.length]);
 
     const handleDelete=(id)=>{
         const url= `https://evil-demon-51495.herokuapp.com/orders/${id}`;
@@ -44,7 +46,7 @@ const MyOrders = () => {
         <div className='container mt-3'>
             <div className='row row-cols-lg-3 row-cols-1'>
                 {
-                     isLoading?<div className='mx-auto'>loading... <Spinner animation="border" variant="primary" /> </div>:orders.map(order=><div className='col'>
+                     isLoading?<div className='mx-auto'>loading... <Spinner animation="border" variant="primary" /> </div>:orders.map(order=><div  key={order._id} className='col'>
                     <div className="card text-dark bg-info mb-3" >
                     <div className="card-header"><h4 className='text-warning bold'>{order.placeName}</h4></div>
                     <div className="card-body">
